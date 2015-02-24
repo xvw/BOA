@@ -2,7 +2,9 @@
 (* services registration. *)
 
 module Boa_app =
-  Eliom_registration.App (
-    struct
-      let application_name = "boa"
-    end)
+  Eliom_registration.App
+    (
+      struct
+        let application_name = Config.name
+      end
+    )
