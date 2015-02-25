@@ -1,0 +1,5 @@
+_server/boa_core.cmo : _server/ui.cmo _server/skeleton.cmo _server/config.cmo
+_server/boa_core.cmx : _server/ui.cmx _server/skeleton.cmx _server/config.cmx
+_server/boa_core.type_mli : _server/ui.cmo _server/skeleton.cmo _server/config.cmo
+_server/boa_core.cmo : _server/boa_core.type_mli
+_server/boa_core.cmx : _server/boa_core.type_mli

@@ -1,0 +1,9 @@
+val __eliom__compilation_unit_id__596763172 : unit
+val name : string
+module DB :
+  sig
+    val user : string
+    val password : string
+    val database : string
+    val host : string
+  end

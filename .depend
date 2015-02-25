@@ -1,0 +1,38 @@
+_server/boa_core.cmo : _server/ui.cmo _server/skeleton.cmo _server/config.cmo
+_server/boa_core.cmx : _server/ui.cmx _server/skeleton.cmx _server/config.cmx
+_server/boa_core.type_mli : _server/ui.cmo _server/skeleton.cmo _server/config.cmo
+_server/boa_core.cmo : _server/boa_core.type_mli
+_server/boa_core.cmx : _server/boa_core.type_mli
+_server/skeleton.cmo :
+_server/skeleton.cmx :
+_server/skeleton.cmo : _server/skeleton.type_mli
+_server/skeleton.cmx : _server/skeleton.type_mli
+_server/ui.cmo :
+_server/ui.cmx :
+_server/ui.cmo : _server/ui.type_mli
+_server/ui.cmx : _server/ui.type_mli
+_server/boa.cmo : _server/boa_core.cmo
+_server/boa.cmx : _server/boa_core.cmx
+_server/boa.type_mli : _server/boa_core.cmo
+_server/boa.cmo : _server/boa.type_mli
+_server/boa.cmx : _server/boa.type_mli
+_server/db.cmo : _server/config.cmo
+_server/db.cmx : _server/config.cmx
+_server/config.cmo :
+_server/config.cmx :
+_client/boa_core.cmo :
+_client/boa_core.cmx :
+_client/boa_core.cmo : _server/boa_core.type_mli
+_client/boa_core.cmx : _server/boa_core.type_mli
+_client/skeleton.cmo :
+_client/skeleton.cmx :
+_client/skeleton.cmo : _server/skeleton.type_mli
+_client/skeleton.cmx : _server/skeleton.type_mli
+_client/ui.cmo :
+_client/ui.cmx :
+_client/ui.cmo : _server/ui.type_mli
+_client/ui.cmx : _server/ui.type_mli
+_client/boa.cmo :
+_client/boa.cmx :
+_client/boa.cmo : _server/boa.type_mli
+_client/boa.cmx : _server/boa.type_mli

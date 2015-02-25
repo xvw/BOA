@@ -1,0 +1,38 @@
+val __eliom__compilation_unit_id__880917802 : unit
+module Boa_app : Eliom_registration.ELIOM_APPL
+module Register :
+  sig
+    val get :
+      ?params:(unit, [ `WithoutSuffix ], unit) Eliom_parameter.params_type ->
+      path:Eliom_lib.Url.path ->
+      (unit -> unit -> Html5_types.html Eliom_content.Html5.elt Lwt.t) ->
+      (unit, unit, [< Eliom_service.service_method > `Get ],
+       [< Eliom_service.attached > `Attached ],
+       [< Eliom_service.service_kind > `Service ], [ `WithoutSuffix ], 
+       unit, unit, [< Eliom_service.registrable > `Registrable ],
+       [> Eliom_service.appl_service ])
+      Eliom_service.service
+    val default_error :
+      (unit, unit, [< Eliom_service.service_method > `Get ],
+       [< Eliom_service.attached > `Attached ],
+       [< Eliom_service.service_kind > `Service ], [ `WithoutSuffix ], 
+       unit, unit, [< Eliom_service.registrable > `Registrable ],
+       [> Eliom_service.appl_service ])
+      Eliom_service.service
+    val post :
+      ?get_params:(unit, [ `WithoutSuffix ], unit)
+                  Eliom_parameter.params_type ->
+      ?fallback:(unit, unit, [ `Get ], Eliom_service.attached_kind,
+                 [< `AttachedCoservice | `Service > `Service ] as 'a,
+                 [ `WithoutSuffix ], unit, unit, [ `Registrable ],
+                 [< Eliom_service.non_ocaml_service > `Appl ])
+                Eliom_service.service ->
+      path:'b ->
+      params:('c, [ `WithoutSuffix ], 'd) Eliom_parameter.params_type ->
+      (unit -> 'c -> Html5_types.html Eliom_content.Html5.elt Lwt.t) ->
+      (unit, 'c, [< Eliom_service.service_method > `Post ],
+       [< Eliom_service.attached > `Attached ], 'a, [ `WithoutSuffix ], 
+       unit, 'd, [< Eliom_service.registrable > `Registrable ],
+       [> Eliom_service.appl_service ])
+      Eliom_service.service
+  end

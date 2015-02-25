@@ -1,0 +1,19 @@
+val __eliom__compilation_unit_id__137694262 : unit
+module Link :
+  sig
+    val url :
+      ?a:[< Html5_types.a_attrib > `Href ] Eliom_content.Html5.D.attrib list ->
+      string ->
+      string Eliom_content.Html5.D.wrap ->
+      [> `A of [> `PCDATA ] ] Eliom_content.Html5.F.Raw.elt
+    val service :
+      ?a:Html5_types.a_attrib Eliom_content.Html5.D.attrib list ->
+      ('a, unit, [< Eliom_service.get_service_kind ],
+       [< Eliom_service.attached ], [< Eliom_service.service_kind ],
+       [< Eliom_service.suff ], 'b, unit, [< Eliom_service.registrable ],
+       [< Eliom_service.non_ocaml_service ])
+      Eliom_service.service ->
+      'a ->
+      string Eliom_content.Html5.D.wrap ->
+      [> [> `PCDATA ] Html5_types.a ] Eliom_content.Html5.D.elt
+  end

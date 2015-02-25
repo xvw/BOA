@@ -1,0 +1,4 @@
+_client/boa.cmo :
+_client/boa.cmx :
+_client/boa.cmo : _server/boa.type_mli
+_client/boa.cmx : _server/boa.type_mli
