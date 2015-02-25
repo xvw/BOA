@@ -1,2 +1,0 @@
-_server/db.cmo : _server/config.cmo
-_server/db.cmx : _server/config.cmx

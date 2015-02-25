@@ -1,4 +1,0 @@
-_client/ui.cmo :
-_client/ui.cmx :
-_client/ui.cmo : _server/ui.type_mli
-_client/ui.cmx : _server/ui.type_mli

@@ -1,4 +1,0 @@
-_server/config.cmo :
-_server/config.cmx :
-_server/config.cmo : _server/config.type_mli
-_server/config.cmx : _server/config.type_mli

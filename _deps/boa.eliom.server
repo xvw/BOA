@@ -1,5 +1,0 @@
-_server/boa.cmo : _server/boa_core.cmo
-_server/boa.cmx : _server/boa_core.cmx
-_server/boa.type_mli : _server/boa_core.cmo
-_server/boa.cmo : _server/boa.type_mli
-_server/boa.cmx : _server/boa.type_mli
