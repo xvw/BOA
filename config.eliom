@@ -6,9 +6,9 @@ let name = "Boa sample app"
 module DB =
   struct
 
-    let user = "root"
-    let password = "mypassword"
-    let database = "mydatabase"
+    let user = "nuki_psql"
+    let password = "password"
+    let database = "boa_sample"
     let host = "localhost"
     
   end

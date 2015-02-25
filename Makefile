@@ -164,6 +164,7 @@ $(TEST_PREFIX)$(LIBDIR)/$(PROJECT_NAME).cma: $(call objs,$(ELIOM_SERVER_DIR),cmo
 $(TEST_PREFIX)$(LIBDIR)/$(PROJECT_NAME).cmxa: $(call objs,$(ELIOM_SERVER_DIR),cmx,$(SERVER_FILES)) | $(TEST_PREFIX)$(LIBDIR)
 	${ELIOMOPT} -a -o $@ $(GENERATE_DEBUG) \
           $(call depsort,$(ELIOM_SERVER_DIR),cmx,-server,$(SERVER_INC),$(SERVER_FILES))
+ 
 
 %.cmxs: %.cmxa
 	$(ELIOMOPT) -shared -linkall -o $@ $(GENERATE_DEBUG) $<
@@ -217,6 +218,7 @@ include .depend
 
 .depend: $(patsubst %,$(DEPSDIR)/%.server,$(SERVER_FILES)) $(patsubst %,$(DEPSDIR)/%.client,$(CLIENT_FILES))
 	cat $^ > $@
+
 
 $(DEPSDIR)/%.server: % | $(DEPSDIR)
 	$(ELIOMDEP) -server $(SERVER_INC) $< > $@
