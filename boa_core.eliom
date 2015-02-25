@@ -36,7 +36,8 @@ module Register =
            "BOA_DEFAULT_ERROR"
            [
              Html5.D.(h1 [pcdata "[BOA DEFAULT ERROR]"]);
-             Html5.D.(p [pcdata "Unknown error"])
+             Html5.D.(p [pcdata "Unknown error"]);
+             Ui.Link.url "https://github.com/Phutur/BOA" "BOA webpage"
            ]
         )
 
