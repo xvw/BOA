@@ -1,0 +1,7 @@
+Feb 26 19:31:18: main: Cannot create the command pipe: Unix.Unix_error(Unix.ENOENT, "mkfifo", "tmp/run/cmd")
+Feb 26 19:31:19: main: Fatal - Unix.Unix_error(Unix.ENOENT, "open", "tmp/run/cmd")
+Fatal error: exception Failure("Ocsidbm: can't create directory data/ocsipersist: No such file or directory")
+Fatal error: exception Failure("Ocsidbm: can't create directory data/ocsipersist: No such file or directory")
+Fatal error: exception Failure("Ocsidbm: can't create directory data/ocsipersist: No such file or directory")
+Feb 26 19:46:24: main: Cannot connect to Ocsidbm. Will continue without persistent session support. Error message is: No such file or directory in connect(). Have a look at the logs to see if there is an error message from the Ocsidbm process.
+Feb 26 19:46:24: main: Fatal - While loading /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsipersist-dbm.cma: Unix.Unix_error(Unix.ENOENT, "connect", "")

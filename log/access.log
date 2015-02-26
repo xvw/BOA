@@ -1,0 +1,7 @@
+Feb 26 19:22:39: access: connection for localhost from ::1 (Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5): 
+Feb 26 19:22:39: access: connection for localhost from ::1 (Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5): css/boa.css
+Feb 26 19:22:39: access: connection for localhost from ::1 (Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5): BOA%20Sample%20application.js
+Feb 26 19:32:00: access: connection for localhost from ::1 (Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.3.0): 
+Feb 26 19:32:00: access: connection for localhost from ::1 (Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.3.0): css/boa.css
+Feb 26 19:32:00: access: connection for localhost from ::1 (Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.3.0): BOA%20Sample%20application.js
+Feb 26 19:32:00: access: connection for localhost from ::1 (Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.3.0): favicon.ico

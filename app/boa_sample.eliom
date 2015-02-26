@@ -9,7 +9,7 @@ let starter_page () () =
       div
         ~a:[a_id "sample_content"]
         [ 
-          h1 [pcdata "Hello world"];
+          h1 [pcdata "Hello World"];
           p [pcdata "A little sample of BOA"]
         ]
     ]
