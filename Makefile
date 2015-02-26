@@ -3,13 +3,19 @@ SERVER = app/server
 CLIENT = app/client
 RUN = ocsigenserver -v -c
 
-clean : clean_emacs_temp
+default : run
+full_clean : clean clean_ocsipersist
+
+clean : clean_emacs_temp clean_log
 	ocamlbuild -clean
 	rm -rf public/boa.js
 
 clean_emacs_temp :
 	rm -rf *~
 	rm -rf */*~
+
+clean_ocsipersist :
+	rm -rf data/ocsipersist
 
 clean_log :
 	rm -rf log/*
