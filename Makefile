@@ -11,6 +11,9 @@ clean_emacs_temp :
 	rm -rf *~
 	rm -rf */*~
 
+clean_log :
+	rm -rf log/*
+
 run : build
 	$(RUN) config/server.xml
 
