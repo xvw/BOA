@@ -8,4 +8,8 @@ let raw title content =
     ~title:title
     ~css:[["css"; "boa.css"]]
     (Html5.F.body content)
+
+(* Generic page returner *)
+let return title content =
+  raw title content
   |> Lwt.return

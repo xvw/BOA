@@ -9,10 +9,10 @@ module Lwt_Query = Query.Make_with_Db(Lwt_thread)(Lwt_PGOCaml)
                                      
 let connect () = 
   Lwt_PGOCaml.connect 
-    ~host:Config.DB.host
-    ~user:Config.DB.user
-    ~password:Config.DB.password
-    ~database:Config.DB.database
+    ~host:Boa_config.Db.host
+    ~user:Boa_config.Db.user
+    ~password:Boa_config.Db.pass
+    ~database:Boa_config.Db.name
     ()
 
 let pool  =

@@ -1,3 +1,4 @@
+(* Kernel of a BOA application *)
 (* Kernel of a Boa Application *)
 open Eliom_content
 
@@ -5,7 +6,7 @@ module Boa_app =
   Eliom_registration.App
     (
       struct
-        let application_name = Config.name
+        let application_name = Boa_config.name
       end
     )
 
@@ -26,26 +27,11 @@ module Register =
           ~service:service
           callback
       in service
-
-    (* Default error *)
-    let default_error =
-      get
-        ~path:["boa";"error"]
-        (fun () () ->
-         Skeleton.raw
-           "BOA_DEFAULT_ERROR"
-           [
-             Html5.D.(h1 [pcdata "[BOA DEFAULT ERROR]"]);
-             Html5.D.(p [pcdata "Unknown error"]);
-             Ui.Link.url "https://github.com/Phutur/BOA" "BOA webpage"
-           ]
-        )
-
-
+           
     (* Define and register a post service*)
     let post
           ?(get_params=Eliom_parameter.unit)
-          ?(fallback=default_error)
+          ~fallback
           ~path
           ~params
           callback =
@@ -63,3 +49,4 @@ module Register =
 
     
   end
+

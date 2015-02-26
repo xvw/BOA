@@ -1,0 +1,59 @@
+Feb 25 10:42:02: main: Initializing Ocsipersist-dbm...
+Feb 25 10:42:02: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 10:42:05: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 10:42:08: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 10:44:23: main: Command pipe created
+Feb 25 10:44:23: main: Initializing Ocsipersist-dbm...
+Feb 25 10:44:23: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 10:44:27: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 10:44:30: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 10:51:18: main: Initializing Ocsipersist-dbm...
+Feb 25 10:51:18: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory assets/ocsipersist.
+Feb 25 10:51:19: main: ...Initialization of Ocsipersist-dbm complete
+Feb 25 10:51:19: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 25 10:51:19: main: Ocsigen has been launched (initialisations ok)
+Feb 25 11:09:10: main: Initializing Ocsipersist-dbm...
+Feb 25 11:09:10: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory assets/ocsipersist.
+Feb 25 11:09:11: main: ...Initialization of Ocsipersist-dbm complete
+Feb 25 11:09:11: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 25 11:09:11: main: Ocsigen has been launched (initialisations ok)
+Feb 25 11:15:55: main: Initializing Ocsipersist-dbm...
+Feb 25 11:15:55: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 11:15:56: main: ...Initialization of Ocsipersist-dbm complete
+Feb 25 11:15:56: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 25 11:15:56: main: Ocsigen has been launched (initialisations ok)
+Feb 25 11:40:57: main: Initializing Ocsipersist-dbm...
+Feb 25 11:40:57: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 11:40:58: main: ...Initialization of Ocsipersist-dbm complete
+Feb 25 11:40:58: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 25 11:40:58: main: Ocsigen has been launched (initialisations ok)
+Feb 25 11:49:21: main: Initializing Ocsipersist-dbm...
+Feb 25 11:49:21: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 11:49:22: main: ...Initialization of Ocsipersist-dbm complete
+Feb 25 11:49:22: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 25 11:49:22: main: Ocsigen has been launched (initialisations ok)
+Feb 25 16:27:19: main: Initializing Ocsipersist-dbm...
+Feb 25 16:27:19: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 25 16:27:21: main: ...Initialization of Ocsipersist-dbm complete
+Feb 25 16:27:21: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 25 16:27:21: main: Ocsigen has been launched (initialisations ok)
+Feb 26 17:07:47: main: Initializing Ocsipersist-dbm...
+Feb 26 17:07:47: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 26 17:07:48: main: ...Initialization of Ocsipersist-dbm complete
+Feb 26 17:07:48: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 26 17:07:48: main: Ocsigen has been launched (initialisations ok)
+Feb 26 17:41:27: main: Initializing Ocsipersist-dbm...
+Feb 26 17:41:27: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 26 17:41:29: main: ...Initialization of Ocsipersist-dbm complete
+Feb 26 17:41:29: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 26 17:41:29: main: Ocsigen has been launched (initialisations ok)
+Feb 26 18:30:29: main: Initializing Ocsipersist-dbm...
+Feb 26 18:30:29: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 26 18:30:30: main: ...Initialization of Ocsipersist-dbm complete
+Feb 26 18:30:30: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 26 18:30:30: main: Ocsigen has been launched (initialisations ok)
+Feb 26 18:32:07: main: Initializing Ocsipersist-dbm...
+Feb 26 18:32:07: main: Launching a new Ocsidbm process: /home/nuki/.opam/4.02.1/lib/ocsigenserver/extensions/ocsidbm on directory data/ocsipersist.
+Feb 26 18:32:08: main: ...Initialization of Ocsipersist-dbm complete
+Feb 26 18:32:08: main: While parsing config file, tag <host>: No defaulthostname, assuming it is "nukilabtop.nukifw"
+Feb 26 18:32:08: main: Ocsigen has been launched (initialisations ok)
