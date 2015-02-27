@@ -9,13 +9,6 @@ let sample_main =
     ~params:(unit)
     ()
 
-let sample_test =
-  Register.get
-    ~path:[]
-    ~params:(string "toto")
-    (fun s _ -> Boa_skeleton.return "e" [Html5.D.(h1 [pcdata "lol"])])
-
-    
 let sample_redirect =
   Register.Any.get
     ~path:["sample_redirect"]
