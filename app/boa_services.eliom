@@ -21,6 +21,6 @@ let sample_redirect =
     ~path:["sample_redirect"]
     ~check:(fun a _ -> a = "nuki" )
     ~params:(string "to")
-    ~fallback:sample_main
+    ~redirection:sample_main
     Boa_sample.test_redirection
     

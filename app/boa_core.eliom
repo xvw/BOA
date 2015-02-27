@@ -67,7 +67,7 @@ module Register =
               ~params
               ~path
               ~check
-              ~fallback
+              ~redirection
               callback
           =
           Eliom_registration.Any.register_service
@@ -76,8 +76,24 @@ module Register =
             (fun g p ->
              if check g p
              then Eliom_registration.Html5.send (callback g p)
-             else Eliom_registration.Redirection.send fallback
+             else Eliom_registration.Redirection.send redirection
             )
+
+        let post
+              ~params
+              ~check
+              ~redirection
+              ~fallback
+              callback
+          =
+          Eliom_registration.Any.register_post_service
+            ~post_params:params 
+             (fun g p ->
+              if check g p
+              then Eliom_registration.Html5.send (callback g p)
+              else Eliom_registration.Redirection.send redirection
+             )
+          
         
       end
     
