@@ -1,5 +1,5 @@
 (* Kernel of a BOA application *)
-(* Kernel of a Boa Application *)
+
 open Eliom_content
 
 module Boa_app =
@@ -10,17 +10,34 @@ module Boa_app =
       end
     )
 
+
+(* Convinient access to SIMPLE service definition *)
+module Define =
+  struct
+
+    let get ~params ~path =
+      Eliom_service.App.service
+        ~path:path
+        ~get_params:params
+
+    let post ~fallback ~params =
+      Eliom_service.App.post_service
+        ~fallback:fallback
+        ~post_params:params
+   
+  end
+    
 (* Convinient access to SIMPLE service registration *)
 module Register =
   struct
 
     (* Define and register get service *)
-    let get ?(params=Eliom_parameter.unit) ~path callback =
+    let get ~params ~path callback =
       let service =
-        Eliom_service.App.service
+        Define.get
           ~path:path
-          ~get_params:params
-          () 
+          ~params:params
+          ()
       in
       let _ =
         Boa_app.register
@@ -29,16 +46,11 @@ module Register =
       in service
            
     (* Define and register a post service*)
-    let post
-          ?(get_params=Eliom_parameter.unit)
-          ~fallback
-          ~path
-          ~params
-          callback =
+    let post ~fallback ~params callback =
       let service =
-        Eliom_service.App.post_service
-          ~fallback:fallback
-          ~post_params:params
+        Define.post
+          ~params:params
+          ~fallback
           ()
       in
       let _ =
@@ -47,6 +59,27 @@ module Register =
           callback
       in service
 
+
+    module Any =
+      struct
+        
+        let get
+              ~params
+              ~path
+              ~check
+              ~fallback
+              callback
+          =
+          Eliom_registration.Any.register_service
+            ~path:path
+            ~get_params:params
+            (fun g p ->
+             if check g p
+             then Eliom_registration.Html5.send (callback g p)
+             else Eliom_registration.Redirection.send fallback
+            )
+        
+      end
     
   end
 
