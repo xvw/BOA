@@ -6,7 +6,11 @@ open Html5.D
 let raw title content =
   Eliom_tools.F.html
     ~title:title
-    ~css:[["css"; "boa.css"]]
+    ~css:[
+      ["css"; "knacss.css"];
+      ["css"; "constrictor.css"];
+      ["css"; "boa.css"]
+    ]
     ~other_head:[
       meta
         ~a:[a_name "viewport"; a_content "width = device-width"]

@@ -1,7 +1,7 @@
 (* Kernel of a BOA application *)
-
 open Eliom_content
 
+       
 module Boa_app =
   Eliom_registration.App
     (

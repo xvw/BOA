@@ -13,6 +13,10 @@ clean : clean_emacs_temp clean_log
 clean_emacs_temp :
 	rm -rf *~
 	rm -rf */*~
+	rm -rf */*/*~
+	rm -rf *\#*
+	rm -rf */\#*
+	rm -rf */*/\#*
 
 clean_ocsipersist :
 	rm -rf data/ocsipersist

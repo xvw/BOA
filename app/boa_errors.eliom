@@ -8,17 +8,7 @@ open Lwt_ops
 let error_template title h desc =
   Boa_skeleton.raw
     title
-    [
-      div
-        ~a:[a_class ["modal"; "error"]]
-        [
-          h1 [pcdata h];
-          p [pcdata desc];
-          Boa_ui.Link.service
-            Eliom_service.void_coservice' ()
-            "reload the page"
-        ]
-    ]
+    [Boa_gui.error h desc]
        
 let error404 () =
   error_template
