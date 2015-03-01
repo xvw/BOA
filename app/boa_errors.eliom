@@ -29,7 +29,7 @@ let error404 () =
 let wrong_params () =
   error_template
     "Wrong parameters"
-    "Wrong paramters"
+    "Wrong parameters"
     "This service is not deserved by this parameters schema"
 
 (* Register error handler *)

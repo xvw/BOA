@@ -10,6 +10,14 @@ module Boa_app =
       end
     )
 
+(* Tool for HTML definition *)    
+module View =
+  struct
+
+    include Html5.D
+    
+  end
+
 
 (* Convinient access to SIMPLE service definition *)
 module Define =
@@ -19,6 +27,9 @@ module Define =
       Eliom_service.App.service
         ~path:path
         ~get_params:params
+
+    let page ~path =
+      get ~params:Eliom_parameter.unit ~path
 
     let post ~fallback ~params =
       Eliom_service.App.post_service
@@ -44,6 +55,12 @@ module Register =
           ~service:service
           callback
       in service
+
+    let page ~path callback =
+      get
+        ~params:Eliom_parameter.unit
+        ~path
+        (fun _ _  -> callback ()) 
            
     (* Define and register a post service*)
     let post ~fallback ~params callback =
@@ -78,6 +95,14 @@ module Register =
              then Eliom_registration.Html5.send (callback g p)
              else Eliom_registration.Redirection.send redirection
             )
+
+        let page ~path ~check ~redirection callback =
+          get
+            ~params:Eliom_parameter.unit
+            ~path
+            ~check
+            ~redirection
+            (fun _ _  -> callback ())
 
         let post
               ~params

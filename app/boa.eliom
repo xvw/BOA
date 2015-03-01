@@ -10,9 +10,6 @@ module Errors = Boa_errors
 module Sample = Boa_sample
                   
 (* Main *)
-let _ =
-  App.register
-    ~service:Services.sample_main
-    Sample.starter_page
+
 
     

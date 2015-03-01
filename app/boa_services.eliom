@@ -2,18 +2,14 @@ open Eliom_content
 open Eliom_parameter
 open Boa_core
 
-       
-let sample_main =
-  Define.get
-    ~path:[]
-    ~params:(unit)
-    ()
+(* Custom services registration *)
+let hello =
+  Register.page
+    ~path:["hello"]
+    Hello.view
 
-let sample_redirect =
-  Register.Any.get
-    ~path:["sample_redirect"]
-    ~check:(fun a _ -> a = "nuki" )
-    ~params:(string "to")
-    ~redirection:sample_main
-    Boa_sample.test_redirection
-    
+let specific_hello =
+  Register.get
+    ~params:(suffix (string "name"))
+    ~path:["specific_hello"]
+    Hello.specific_view

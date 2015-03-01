@@ -61,7 +61,7 @@ h1{
     background-color: #BD5D62;
     padding: 8px;
     color: #FFF;
-    display: block;
+    display: inline-block;
 }
 
 #sample_content {
