@@ -6,6 +6,10 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.paragraph {
+    margin: 20px;
+}
+
 .container_modal {
     position:absolute;
     width: 100%;
@@ -40,7 +44,6 @@ body {
 .button > * {
     margin:auto;
     padding: 8px;
-    margin: 8px;
     text-decoration: none;
 }
 
@@ -52,3 +55,31 @@ body {
     color:white;
 }
 
+.boa1_btn > * {
+    background-color: #1B2A59;
+    color: #FFF;
+}
+
+.boa2_btn > * {
+    background-color: #0378A6;
+    color: #FFF;
+}
+
+.boa3_btn > * {
+    background-color: #04ADBF;
+    color: #FFF;
+}
+
+
+.boa1_btn > *,
+.boa2_btn > *,
+.boa3_btn > *{
+    margin-right:4px;
+}
+
+.boa1_btn > a:hover,
+.boa2_btn > a:hover,
+.boa3_btn > a:hover{
+    color:#FFF;
+    background-color: #04ADBF;
+}

@@ -26,13 +26,13 @@ let button ?(classes = []) a =
   div ~a:[a_class ("button"::classes)] [a]
 
 (* Display an HTML5 Modal*)
-let modal ~classes content =
+let modal ?(classes = []) content =
   div
     ~a:[a_class ["container_modal"]]
     [div ~a:[a_class classes] content]
 
 (* HTML5 Modal with title *)
-let modal_with_title ~classes ~title content =
+let modal_with_title ?(classes=[]) ~title content =
   modal ~classes ([h1 [pcdata title]]@content)
 
 (* Error Modal *)        

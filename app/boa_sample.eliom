@@ -1,28 +1,45 @@
 open Eliom_content
-open Html5.D
-
+open Boa_core
+       
 (* A classic standard page *)
-let starter_page () () =
+let starter_page () =
+  let open View in 
   Boa_skeleton.return
     "Hello !"
     [
-      div
-        ~a:[a_id "sample_content"]
+      Boa_gui.modal_with_title
+        ~title:"Hello from BOA!"
         [ 
-          h1 [pcdata "Hello World"];
-          p [pcdata "A little sample of BOA"]
+          p
+            ~a:[a_class ["paragraph"]]
+            [
+              pcdata
+                "A little sample of BOA. A little framework builded
+                 over Ocsigen !
+                 "
+            ];
+          Boa_gui.button
+            ~classes:["boa2_btn"]
+            (Boa_ui.Link.url
+               "http://ocsigen.org"
+               "Ocsigen website");
+
+          Boa_gui.button
+            ~classes:["boa2_btn"]
+            (Boa_ui.Link.url
+               "http://github.com/phutur/BOA"
+               "BOA repository");
+          
+          Boa_gui.button
+            ~classes:["boa2_btn"]
+            (Boa_ui.Link.url
+               "http://github.com/phutur/BOA/wiki"
+               "BOA Wiki");
         ]
     ]
 
-(* Test for redirection *)
-let test_redirection g _ =
-  Boa_skeleton.raw
-    "Test redirection"
-    [
-      div
-        ~a:[a_id "sample_content"]
-        [ 
-          h1 [pcdata ("Hello "^g)];
-          p [pcdata "A little sample of BOA"]
-        ] 
-    ]
+
+let start =
+  Register.page
+    ~path:[]
+    starter_page
