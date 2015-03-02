@@ -6,8 +6,8 @@ module Db =
   struct
 
     let user = "boa"
-    let pass = "password"
+    let pass = "boapassword"
     let host = "localhost"
-    let name = "boa_sample"
+    let name = "boadb"
 
   end
