@@ -7,7 +7,11 @@ body {
 }
 
 .paragraph {
-    margin: 20px;
+    margin-bottom: 32px;
+}
+
+.text_center {
+    text-align: center;
 }
 
 .container_modal {
@@ -39,10 +43,10 @@ body {
 
 .button {
     display: inline-block;
+    padding:4px;
 }
 
 .button > * {
-    margin:auto;
     padding: 8px;
     text-decoration: none;
 }
@@ -63,6 +67,9 @@ body {
 .boa2_btn > * {
     background-color: #0378A6;
     color: #FFF;
+    display: block;
+    width: 100%;
+    text-align:center;
 }
 
 .boa3_btn > * {
