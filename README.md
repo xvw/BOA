@@ -42,6 +42,8 @@ Le code d'une application est placé dans le répertoire `app/`. Il est évidemm
 *   `boa_skeleton.eliom` : Fonctions de génération de page Html5 (valides!)
 *   `boa_ui.eliom` : *Helpers* pour les interactions clients-serveur.
 
+Les exemples purs ont été supprimés de cette liste pour se focaliser sur ce qui est réellement utilisable. Si des fichiers complémentaires sont importants, ils seront décrits dans un didacticiel.
+
 ## Didacticiels
 
 *   [Première application : Hello World](https://github.com/Phutur/BOA/wiki/Premi%C3%A8re-application-BOA-:-Hello-World)
