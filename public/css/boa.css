@@ -1,1 +1,67 @@
 /* Precise CSS*/
+
+.boa1_btn > * {
+    background-color: #1B2A59;
+    color: #FFF;
+}
+
+.boa2_btn > * {
+    background-color: #0378A6;
+    color: #FFF;
+    display: block;
+    width: 100%;
+    text-align:center;
+}
+
+.boa3_btn > * {
+    background-color: #04ADBF;
+    color: #FFF;
+}
+
+
+.boa1_btn > *,
+.boa2_btn > *,
+.boa3_btn > *{
+    margin-right:4px;
+}
+
+
+.boa1_btn > a:hover,
+.boa2_btn > a:hover,
+.boa3_btn > a:hover{
+    color:#FFF;
+    background-color: #04ADBF;
+}
+
+.label_btn {
+    font-weight: 900;
+    display:block;
+    text-align:center;
+}
+
+.weak_btn { color: green;}
+.normal_btn { color: #c0c0c0;}
+.strong_btn { color: red;}
+
+.task {
+    vertical-align:middle;
+}
+.task_unfinished {
+    background-color: #E5B2A6;
+    color: #703337;
+}
+
+.task_finished {
+    background-color: #74DBA5;
+    color: #203D2E;
+}
+
+.input_task {
+    margin: 8px;
+}
+
+
+.input_task > *  {
+    padding: 4px;
+    margin: 4px;
+}

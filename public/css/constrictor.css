@@ -14,6 +14,14 @@ body {
     text-align: center;
 }
 
+.boa_box {
+    max-width: 620px;
+}
+
+.vertical {
+    vertical-align:middle;
+}
+
 .container_modal {
     position:absolute;
     width: 100%;
@@ -57,36 +65,4 @@ body {
 }
 .error_btn > a:hover {
     color:white;
-}
-
-.boa1_btn > * {
-    background-color: #1B2A59;
-    color: #FFF;
-}
-
-.boa2_btn > * {
-    background-color: #0378A6;
-    color: #FFF;
-    display: block;
-    width: 100%;
-    text-align:center;
-}
-
-.boa3_btn > * {
-    background-color: #04ADBF;
-    color: #FFF;
-}
-
-
-.boa1_btn > *,
-.boa2_btn > *,
-.boa3_btn > *{
-    margin-right:4px;
-}
-
-.boa1_btn > a:hover,
-.boa2_btn > a:hover,
-.boa3_btn > a:hover{
-    color:#FFF;
-    background-color: #04ADBF;
 }

@@ -1,5 +1,5 @@
 (* Configuration of Application *)
-let name = "BOA Sample application"
+let name = "boa"
 
 (* Database configuration *)
 module Db =

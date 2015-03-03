@@ -35,6 +35,21 @@ module Define =
       Eliom_service.App.post_service
         ~fallback:fallback
         ~post_params:params
+
+    module Action =
+      struct
+
+        let post ~params callback  =
+          Eliom_registration.Action.register_post_coservice'
+            ~post_params:params
+            (fun () x -> callback x)
+
+        let get ~params callback =
+          Eliom_registration.Action.register_coservice'
+            ~get_params:params
+            (fun x () -> callback x)
+        
+      end
    
   end
     

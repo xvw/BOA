@@ -15,17 +15,16 @@ let connect () =
     ~database:Boa_config.Db.name
     ()
 
-let pool  =
-  fun () -> (
-    Lwt_pool.create 
-      16 
-      ~validate:Lwt_PGOCaml.alive 
-      connect
-  )
+type pool_connection = (string, bool) Hashtbl.t Lwt_PGOCaml.t Lwt_pool.t 
+let pool : pool_connection =
+  Lwt_pool.create 
+    16 
+    ~validate:Lwt_PGOCaml.alive 
+    connect
 
 let use f ?log x = 
   Lwt_pool.use 
-    (pool ()) 
+    pool 
     (fun db -> f db ?log  x)
 
 
