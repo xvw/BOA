@@ -1,7 +1,10 @@
 open Eliom_lib
+
 (* Table definition *)
+       
 let tasks_id_seq =
   <:sequence< serial "tasks_id_seq" >>
+
 let table =
   <:table< tasks (
    task_id       integer NOT NULL DEFAULT(nextval $tasks_id_seq$),
@@ -17,7 +20,6 @@ type t =
     ; priority : int
     ; state    : bool
     }
-
     
 (* Convert SQL value to Task.t *)
 let project_task t =
@@ -28,15 +30,14 @@ let project_task t =
   }
 
 let add_task title priority =
-  let prior = Int32.of_int priority
-  and state = false in
+  let prior = Int32.of_int priority in
   Boa_db.query
     <:insert< $table$ := 
      {
      task_id       = table?task_id; 
      task_title    = $string:title$; 
      task_priority = $int32:prior$;
-     task_state    = $bool:state$
+     task_state    = false
      }>>
 
 let remove_task id =
