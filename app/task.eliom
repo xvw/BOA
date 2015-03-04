@@ -25,6 +25,11 @@ let open_task =
     ~params:(int "task_id")
     (fun id -> Db_task.open_task id)
 
+let remove_task =
+  Define.Action.post
+    ~params:(int "task_id")
+    (fun id -> Db_task.remove_task id)
+    
 
 (* view *)
 let priority x =
@@ -64,6 +69,24 @@ let define_class x =
   then ["task_finished"]
   else ["task_unfinished"]
 
+let remove x =
+  let open View in
+  let form (id) =
+    [
+      int_input
+        ~input_type:`Hidden
+        ~value:x.Db_task.id
+        ~name:id
+        ();
+      string_input
+        ~a:[a_class ["remove-task"]]
+        ~input_type:`Submit
+        ~value:"DEL"
+        ()
+    ]
+  in 
+  post_form remove_task form ()
+	 
 
 let wrap_tasks =
   let open View in
@@ -76,6 +99,7 @@ let wrap_tasks =
              [pcdata x.Db_task.title];
            td [priority x];
            td [state x];
+	   td [remove x]
          ]
     )
 
@@ -88,6 +112,7 @@ let tasks () =
         th ~a:[a_class ["w66"; "vertical"]] [pcdata "Titre"];
         th [pcdata "Priorité"];
         th [pcdata "Flip/Flop"];
+	th [pcdata "Effacer"]
       ]
   in 
   (Db_task.all ()) >|=

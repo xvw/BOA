@@ -39,6 +39,12 @@ let add_task title priority =
      task_state = $int32:state$
      }>>
 
+let remove_task id =
+  Boa_db.query
+    <:delete< task in $table$  
+     | task.task_id = $int32:(Int32.of_int id)$
+     >>    
+    
 let set_state id value =
   let nvalue = if value then 1 else 0 in 
   Boa_db.query
