@@ -1,6 +1,8 @@
 <{config,data,log,public,tmp}>: -traverse
 true: thread, debug
-<app/*.{eliom,eliomi}>: syntax(camlp4o)
+<app/*.{eliom,eliomi}>: syntax(camlp4o), package(deriving)
+<app/*.{eliom,eliomi}>: package(js_of_ocaml.syntax)
+<app/*.{eliom,eliomi}>: package(js_of_ocaml.deriving.syntax)
 <app/*.{eliom,eliomi,ml,mli}>: package(eliom.server), package(eliom.server.ext)
 <app/*.{eliom,eliomi,ml,mli}>: package(lwt), package(lwt.syntax)
 <app/*.ml{,i}>: package(pgocaml)

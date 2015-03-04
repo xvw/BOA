@@ -65,3 +65,25 @@
     padding: 4px;
     margin: 4px;
 }
+
+.open-task {
+    background-color: #E5B2A6;
+    color: #703337;
+    display:block;
+    padding: 4px;
+    margin:auto;
+    border: 1px solid #703337;
+    font-weight: 900;
+    width: 100%;
+}
+
+.close-task {
+    display:block;
+    background-color: #74DBA5;
+    color: #203D2E;
+    padding: 4px;
+    margin:auto;
+    border: 1px solid #203D2E;
+    font-weight: 900;
+    width: 100%;
+}
