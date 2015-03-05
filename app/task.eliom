@@ -79,9 +79,9 @@ let remove x =
         ~name:id
         ();
       string_input
-        ~a:[a_class ["remove-task"]]
+        ~a:[a_class ["open-task"; "label_btn"]]
         ~input_type:`Submit
-        ~value:"DEL"
+        ~value:"X"
         ()
     ]
   in 
@@ -99,7 +99,7 @@ let wrap_tasks =
              [pcdata x.Db_task.title];
            td [priority x];
            td [state x];
-	   td [remove x]
+	         td [remove x]
          ]
     )
 
