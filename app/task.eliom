@@ -11,7 +11,7 @@ let add_task =
       ** (int "priority")
     )
     (fun (title, prior) ->
-       Db_task.add_task title prior
+     Db_task.add_task title prior
     )
 
 let close_task =
@@ -79,7 +79,7 @@ let remove x =
         ~name:id
         ();
       string_input
-	      ~a:[a_class ["open-task"; "label_btn"]]
+        ~a:[a_class ["open-task"; "label_btn"]]
         ~input_type:`Submit
         ~value:"X"
         ()
@@ -92,15 +92,15 @@ let wrap_tasks =
   let open View in
   List.map
     (fun x ->
-       tr
-         [
-           td
-             ~a:[a_class (["w66"; "task"] @ (define_class x))]
-             [pcdata x.Db_task.title];
-           td [priority x];
-           td [state x];
-	         td [remove x]
-         ]
+     tr
+       [
+         td
+           ~a:[a_class (["w66"; "task"] @ (define_class x))]
+           [pcdata x.Db_task.title];
+         td [priority x];
+         td [state x];
+         td [remove x]
+       ]
     )
 
 
@@ -108,18 +108,18 @@ let tasks () =
   let open View in
   let h =
     tr ~a:[a_style "background-color:#f2f2f2"]
-      [
-        th ~a:[a_class ["w66"; "vertical"]] [pcdata "Titre"];
-        th [pcdata "Priorité"];
-        th [pcdata "Flip/Flop"];
-	      th [pcdata "Effacer"]
-      ]
+       [
+         th ~a:[a_class ["w66"; "vertical"]] [pcdata "Titre"];
+         th [pcdata "Priorité"];
+         th [pcdata "Flip/Flop"];
+         th [pcdata "Effacer"]
+       ]
   in 
   (Db_task.all ()) >|=
-  (function
-    | [] -> pcdata "Il n'y a pas de tâche en cours"
-    | x -> table ([h]@wrap_tasks x)
-  )
+    (function
+      | [] -> pcdata "Il n'y a pas de tâche en cours"
+      | x -> table ([h]@wrap_tasks x)
+    )
 
 let add_form (task_title, task_prior) =
   let open View in 
@@ -147,14 +147,14 @@ let add_form (task_title, task_prior) =
 
 let view () =
   tasks () >>=
-  (fun t ->
+    (fun t ->
      let form = View.post_form add_task add_form () in 
      Boa_skeleton.return
        "Todo list"
        [
-	       Boa_gui.modal_with_title
-	         ~classes:["boa_box"]
-	         ~title:"Tâches à réaliser !"
-	         (form::[t])
+         Boa_gui.modal_with_title
+           ~classes:["boa_box"]
+           ~title:"Tâches à réaliser !"
+           (form::[t])
        ]
-  )
+    )
