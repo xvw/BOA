@@ -38,8 +38,8 @@ let priority x =
     | 1 -> "normal_btn", "normale"
     | _ -> "strong_btn", "haute"
   in Boa_gui.button
-    ~classes:["label_btn";klass]
-    (View.pcdata text)
+       ~classes:["label_btn";klass]
+       (View.pcdata text)
 
 let state x =
   let open View in
