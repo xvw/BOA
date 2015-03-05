@@ -1,9 +1,7 @@
 open Eliom_lib
 open Eliom_parameter
 open Boa_core
-
-(* services *)
-
+       
 let add_task =
   Define.Action.post
     ~params:(
@@ -79,7 +77,7 @@ let remove x =
         ~name:id
         ();
       string_input
-        ~a:[a_class ["open-task"; "label_btn"]]
+        ~a:[a_class ["remove-task"]]
         ~input_type:`Submit
         ~value:"X"
         ()

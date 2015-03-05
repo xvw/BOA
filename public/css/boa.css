@@ -87,3 +87,11 @@
     font-weight: 900;
     width: 100%;
 }
+
+.remove-task {
+    display:block;
+    padding: 4px;
+    margin:auto;
+    font-weight: 900;
+    width: 100%;
+}

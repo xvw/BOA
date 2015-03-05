@@ -3,8 +3,14 @@ open Eliom_parameter
 open Boa_core
 
 (* Custom services registration *)
-let todo =
-  Register.page
-    ~path:["todo"]
-    Task.view
-       
+(* Entry point for service regsitration *)
+module Custom =
+  struct
+
+    (* A verry simple todo list *)
+    let todo =
+      Register.page
+        ~path:["todo"]
+        Task.view
+    
+  end

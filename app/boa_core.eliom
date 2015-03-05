@@ -68,14 +68,14 @@ module Register =
       let _ =
         Boa_app.register
           ~service:service
-          callback
+          (fun x _ -> callback x)
       in service
 
     let page ~path callback =
       get
         ~params:Eliom_parameter.unit
         ~path
-        (fun _ _  -> callback ()) 
+        (fun _ -> callback ()) 
            
     (* Define and register a post service*)
     let post ~fallback ~params callback =
@@ -88,7 +88,7 @@ module Register =
       let _ =
         Boa_app.register
           ~service:service
-          callback
+          (fun _ x -> callback x)
       in service
 
 
@@ -105,9 +105,9 @@ module Register =
           Eliom_registration.Any.register_service
             ~path:path
             ~get_params:params
-            (fun g p ->
-             if check g p
-             then Eliom_registration.Html5.send (callback g p)
+            (fun g _ ->
+             if check g 
+             then Eliom_registration.Html5.send (callback g)
              else Eliom_registration.Redirection.send redirection
             )
 
@@ -117,7 +117,7 @@ module Register =
             ~path
             ~check
             ~redirection
-            (fun _ _  -> callback ())
+            callback
 
         let post
               ~params
@@ -128,9 +128,9 @@ module Register =
           =
           Eliom_registration.Any.register_post_service
             ~post_params:params 
-             (fun g p ->
-              if check g p
-              then Eliom_registration.Html5.send (callback g p)
+             (fun _ p->
+              if check p
+              then Eliom_registration.Html5.send (callback p)
               else Eliom_registration.Redirection.send redirection
              )
           

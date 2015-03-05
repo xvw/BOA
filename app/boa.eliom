@@ -11,7 +11,7 @@ module Gui = Boa_gui
 module Errors = Boa_errors
 module Sample = Boa_sample
                   
-(* Main *)
+(* Entry point for custom modules *)
 
 
     
