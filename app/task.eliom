@@ -79,9 +79,9 @@ let remove x =
         ~name:id
         ();
       string_input
-        ~a:[a_class ["open-task"; "label_btn"]]
+        ~a:[a_class ["remove-task"]]
         ~input_type:`Submit
-        ~value:"X"
+        ~value:"DEL"
         ()
     ]
   in 
@@ -99,7 +99,7 @@ let wrap_tasks =
              [pcdata x.Db_task.title];
            td [priority x];
            td [state x];
-	         td [remove x]
+	   td [remove x]
          ]
     )
 
@@ -146,13 +146,15 @@ let add_form (task_title, task_prior) =
   ]
 
 let view () =
-  lwt t =tasks () in
-let form = View.post_form add_task add_form () in 
-Boa_skeleton.return
-  "Todo list"
-  [
-    Boa_gui.modal_with_title
-      ~classes:["boa_box"]
-      ~title:"Tâches à réaliser !"
-      (form::[t])
-  ]
+  tasks () >>=
+    (fun t ->
+     let form = View.post_form add_task add_form () in 
+     Boa_skeleton.return
+       "Todo list"
+       [
+	 Boa_gui.modal_with_title
+	   ~classes:["boa_box"]
+	   ~title:"Tâches à réaliser !"
+	   (form::[t])
+       ]
+    )
