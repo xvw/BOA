@@ -9,6 +9,7 @@
     <extension findlib-package="ocsigenserver.ext.ocsipersist-dbm"/>
     <extension findlib-package="eliom.server"/>
     <extension findlib-package="macaque.syntax"/>
+    <extension findlib-package="safepass"/>
     <host hostfilter="*">
       <static dir="public" />
       <eliommodule module="_build/app/server/boa.cma" />
