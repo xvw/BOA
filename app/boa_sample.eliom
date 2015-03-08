@@ -1,5 +1,6 @@
+{shared{
 open Boa_core
-
+}}
 
 module Start =
 struct
@@ -73,7 +74,8 @@ end
 (* Sample of simple reactiv context *)
   
 {shared{
- open Eliom_content.Html5
+open Eliom_lib
+open Eliom_content.Html5
 }}
 
 {client{
@@ -124,4 +126,60 @@ let other_react_sample =
      Boa_skeleton.return
        "Timer Sample"
        [time_div]
+    )
+
+
+(* Realtime test *)
+let realtime_div = D.(div ~a:[a_id "realtime-div"] [])
+
+                       
+let bus =
+  Boa_realtime.create_bus
+    ~name:"texted"
+    Json.t<string>
+    
+                       
+{client{
+                            
+     let rec process_append s = 
+       let dom_div = To_dom.of_div %realtime_div in
+       let added_div = Dom_html.createDiv Dom_html.document in  
+       let textnode =
+         Dom_html.document ## createTextNode (Js.string s)
+       in
+       let _ = Dom.appendChild added_div textnode in 
+       let _ = Dom.appendChild dom_div added_div in ()
+
+     let write s =
+       Boa_realtime.write_bus %bus s
+       |> ignore
+
+
+     let _ = Boa_realtime.iterate process_append %bus
+
+   }}  
+  
+  
+let realtime_service =
+  let open View in
+  Register.page
+    ~path:["realtime"]
+    (fun () ->
+     Boa_skeleton.return
+       "Realtime example"
+       [
+         Boa_gui.modal_with_title
+           "Realtime example"
+           [
+             D.button
+               ~button_type:`Button
+               ~a:[a_onclick
+                     {{
+                       fun _ -> write (Printf.sprintf "%f" (Unix.time ()))
+                     }}
+                  ]
+               [pcdata "Append text"];
+             realtime_div
+           ]
+       ]
     )
