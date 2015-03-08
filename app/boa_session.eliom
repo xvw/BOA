@@ -20,8 +20,7 @@ let get target =
                       
 (* Restore eref value with the initial value *)
 let restore target =
-  Eliom_reference.Volatile.unset target
-                        
+  Eliom_reference.Volatile.unset target                        
        
 (* Persistant sessions *)       
 module Persistant =
@@ -47,3 +46,4 @@ module Persistant =
       Eliom_reference.unset target
     
   end
+
