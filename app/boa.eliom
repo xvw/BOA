@@ -2,6 +2,7 @@
 module Db = Boa_db
 {shared{
      module Core = Boa_core
+     module React = Boa_react
      module Session = Boa_session
      module Services = Boa_services
      module Skeleton = Boa_skeleton
