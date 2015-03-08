@@ -68,6 +68,10 @@ struct
       starter_page
 
 end
+
+
+(* Sample of simple reactiv context *)
+  
 {shared{
  open Eliom_content.Html5
 }}
@@ -103,3 +107,21 @@ let react_sample =
        ]
     )
 
+(* Another reactive sample *)
+
+(* Create an iterator (on each frames) *)
+let time =
+  Boa_react.iterate
+    "Valeur par défaut :v"
+    (fun _ -> Printf.sprintf "%f" (Unix.time ()))
+
+(* Display with reactives values *)
+let other_react_sample =
+  Register.page
+    ~path:["react_other_sample"]
+    (fun () ->
+     let time_div = View.div [C.node {{ R.pcdata %time }}] in 
+     Boa_skeleton.return
+       "Timer Sample"
+       [time_div]
+    )
