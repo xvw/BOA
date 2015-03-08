@@ -7,10 +7,5 @@ open Boa_core
 module Custom =
   struct
 
-    (* A verry simple todo list *)
-    let todo =
-      Register.page
-        ~path:["todo"]
-        Task.view
     
   end
