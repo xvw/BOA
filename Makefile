@@ -1,7 +1,7 @@
 BUILD = ocamlbuild -use-ocamlfind -plugin-tags 'package(eliom.ocamlbuild)'
 SERVER = app/server
 CLIENT = app/client
-RUN = ocsigenserver -v -c
+RUN = ocsigenserver OCAMLRUNPARAM=g -v -c
 
 default : run
 full_clean : clean clean_ocsipersist

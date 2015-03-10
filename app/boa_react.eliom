@@ -21,8 +21,8 @@ let map f handler = React.S.map f handler.signal
 let apply f handler =
   handler.callback (f (React.S.value handler.signal)) 
 
-
 }}
+
 
 
 let iterate ?(step=1.0) value f =
