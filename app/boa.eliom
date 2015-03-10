@@ -9,6 +9,7 @@ module Ui = Boa_ui
 module Gui = Boa_gui
 module Errors = Boa_errors
 {shared{
+     module Job = Boa_job
      module Geolocation = Boa_geolocation
      module Services = Boa_services
      module Sample = Boa_sample

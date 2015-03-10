@@ -183,3 +183,19 @@ let realtime_service =
            ]
        ]
     )
+
+(* Geo Sample *)
+{client{open Boa_geolocation}}
+let geo_view () =
+  let lat_ctn = Boa_react.node {{R.pcdata (map_latitude string_of_float)}}
+  and lon_ctn = Boa_react.node {{R.pcdata (map_longitude string_of_float)}}
+  in
+  let _ = {unit{track_coords ()}} in
+  Boa_skeleton.modal_with_title
+    "Sample of Geolocation"
+    [lat_ctn; lon_ctn]
+    
+let geo_service =
+  Register.page
+    ~path:["geo"]
+    geo_view

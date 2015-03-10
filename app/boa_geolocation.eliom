@@ -1,53 +1,37 @@
+(* Geolocation helper *)
 {shared{
-
-open Eliom_lib
-open Boa_core
-open Eliom_content.Html5
+     open Eliom_content
+     open Html5
+     open Boa_core
+     let (>>=) = Lwt.bind
 }}
 
-let inp = 
-  D.Raw.input ()
-  
 {client{
+     
+     (* Create signal for reactive data *)
+     let signal_lat = Boa_react.create 0.0
+     let signal_lon = Boa_react.create 0.0
 
-let geolocation =
-  let nav = Js.Unsafe.variable "navigator" in
-  nav ## geolocation
+     (* Create an Geolocation object in JS *)                                   
+     let geo_obj =
+       let nav = Js.Unsafe.variable "navigator" in
+       nav ## geolocation
 
-let retreive_callback pos =
-  let lat = Js.to_float (pos ## coords ## latitude)
-  and lon = Js.to_float (pos ## coords ## longitude) in
-  let i = To_dom.of_input %inp in
-  i ## value <- (Js.string (Printf.sprintf "%f x %f" lat lon))
+     (* Position callback *)
+     let position_callback pos_obj =
+       let lat = Js.to_float (pos_obj ## coords ## latitude)
+       and lon = Js.to_float (pos_obj ## coords ## longitude) in
+       let _ = Boa_react.set signal_lat lat in
+       Boa_react.set signal_lon lon
 
-let position_call () =
-  geolocation ## getCurrentPosition(retreive_callback)
-      
-let binder ()  =
-  while_lwt true
-  do
-    %(Lwt_unix.sleep 1.0) >>=
-      (fun () ->
-       position_call ();
-       Lwt.return_unit
-      )
-  done
+     (* reactive caller *)
+     let process () =
+       geo_obj ## getCurrentPosition (position_callback)
 
-let _ = Lwt.async binder
-              
+     let map_latitude f = Boa_react.map f signal_lat
+     let map_longitude f = Boa_react.map f signal_lon
+
+     let track_coords () =
+       Lwt.async (fun () -> Boa_job.continous process)
+       
 }}
-              
-let view () =
-  Boa_skeleton.return
-    "Sample geocode"
-    [
-      Boa_gui.modal_with_title
-        "Your current position"
-        [inp]
-    ]
-
-    
-let main =
-  Register.page
-    ~path:["geo"]
-    view
