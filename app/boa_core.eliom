@@ -139,3 +139,11 @@ module Register =
     
   end
 
+module Util =
+  struct
+
+    let md5 s =
+      let value = String.(trim (lowercase s)) in
+      Digest.(to_hex (string value))
+    
+  end

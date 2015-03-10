@@ -199,3 +199,22 @@ let geo_service =
   Register.page
     ~path:["geo"]
     geo_view
+
+(* Gravatar sample *)
+let gravatar_service =
+  Register.get
+    ~path:["gravatar"]
+    ~params:Eliom_parameter.(suffix (string "mail"))
+    (fun g ->
+     let open View in 
+     Boa_skeleton.modal_with_title
+       "Sample of Gravatar"
+       [
+         h2 [pcdata g];
+         img
+           ~a:[a_style "width:100%"]
+           ~alt:"Avatar"
+           ~src:(Boa_uri.gravatar g)
+           ()
+       ]
+    )
