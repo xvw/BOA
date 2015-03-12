@@ -13,9 +13,22 @@ module Boa_app =
 (* Tool for HTML definition *)    
 module View =
   struct
-
     include Html5.D
-    
+  end
+
+module Service =
+  struct
+
+    let register ~service callback =
+      Boa_app.register
+        ~service:service
+        callback
+
+    let curry ~service params =
+      Eliom_service.preapply params
+
+    let self = Eliom_service.void_coservice'
+
   end
 
 

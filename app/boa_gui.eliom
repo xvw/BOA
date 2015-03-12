@@ -2,6 +2,7 @@ open Eliom_lib
 open Eliom_content
 open Html5.D
 open Lwt_ops
+open Boa_core
 open Boa_ui
 
 (* Layout elements *)
@@ -46,7 +47,7 @@ let error title content =
         ~classes:["error_btn"]
         (
           Link.service
-            Eliom_service.void_coservice' ()
+            Service.self ()
             "Reload the page"
         )
     ]
