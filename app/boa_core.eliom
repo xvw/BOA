@@ -91,7 +91,32 @@ module Register =
           (fun _ x -> callback x)
       in service
 
+           
+    (* Redirection *)
+    module Redirection =
+      struct
 
+        let get ~path ~params callback =
+          Eliom_registration.Redirection.register_service
+            ~path
+            ~get_params:params
+            (fun x _ -> callback x)
+
+        let page ~path callback = 
+          get
+            ~path
+            ~params:Eliom_parameter.unit
+            callback
+            
+        let post ~fallback  ~params callback =
+          Eliom_registration.Redirection.register_post_service
+            ~fallback
+            ~post_params:params
+            (fun _ x -> callback x)
+        
+      end
+
+    (* Polymorphic services *)
     module Any =
       struct
         
@@ -142,8 +167,44 @@ module Register =
 module Util =
   struct
 
+    let as_token s =
+      String.(trim (lowercase s))
+                              
     let md5 s =
-      let value = String.(trim (lowercase s)) in
+      let value = as_token s in
       Digest.(to_hex (string value))
+
+    let password_hash s =
+      Bcrypt.(string_of_hash (hash s))
+
+    let password_check hashcode s =
+      Bcrypt.(verify s (hash_of_string hashcode))
     
+  end
+
+module Check =
+  struct
+
+    let is_email s =
+      let mail = Util.as_token s
+      and regexp = Str.regexp "\\([^<>(),; \t]+@[^<>(),; \t]+\\)" in
+      Str.string_match regexp mail 0
+
+    let password = Util.password_check
+
+  end
+
+module Email =
+  struct
+
+    let is_valide = Check.is_email
+    
+  end
+
+module Password =
+  struct
+
+    let hash = Util.password_hash
+    let check = Util.password_check
+
   end
