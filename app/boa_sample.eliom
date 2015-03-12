@@ -13,8 +13,8 @@ struct
       ~a:[a_class ["paragraph"]]
       [
         pcdata
-          "A little sample of BOA. A little framework builded
-             over Ocsigen !
+          "A little sample of BOA. A little framework built
+             from Ocsigen !
              "
       ]
 
