@@ -193,7 +193,7 @@ let geo_view () =
   let _ = {unit{track_coords ()}} in
   Boa_skeleton.modal_with_title
     "Sample of Geolocation"
-    [lat_ctn; lon_ctn]
+    [View.div [lat_ctn]; View.div [lon_ctn]]
     
 let geo_service =
   Register.page

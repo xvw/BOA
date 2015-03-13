@@ -3,7 +3,7 @@ SERVER = app/server
 CLIENT = app/client
 RUN = ocsigenserver OCAMLRUNPARAM=g -v -c
 
-default : run
+default : build
 full_clean : clean clean_ocsipersist
 
 clean : clean_emacs_temp clean_log
