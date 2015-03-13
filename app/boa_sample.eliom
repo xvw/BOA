@@ -218,3 +218,46 @@ let gravatar_service =
            ()
        ]
     )
+
+(* tip sample *)
+let notif_box = D.(div ~a:[a_class ["info_notif"]]) []
+let alert_box = D.(div ~a:[a_class ["alert_notif"]]) []
+let tip_action =
+  Define.Action.atomic
+    (fun () ->
+     Boa_tip.set notif_box [D.pcdata "I'm a notification !"]
+    )
+let alert_action =
+  Define.Action.atomic
+    (fun () ->
+     Boa_tip.set_closable alert_box [D.pcdata "I'm an alert !"]
+    )
+
+let tip_service =
+  Register.page
+    ~path:["tip"]
+    (fun () ->
+     Boa_skeleton.modal_with_title
+       "Sample of tips"
+       [
+         alert_box;
+         notif_box;
+         D.br ();
+         View.(atomic_form
+           ~service:tip_action
+           (fun _ -> [
+              string_input
+                ~input_type:`Submit
+                ~a:[a_value "Info"]
+                ()
+            ]));
+         View.(atomic_form
+           ~service:alert_action
+           (fun _ -> [
+              string_input
+                ~input_type:`Submit
+                ~a:[a_value "Alert"]
+                ()
+            ]));
+       ]
+    )

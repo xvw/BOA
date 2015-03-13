@@ -14,6 +14,8 @@ module Boa_app =
 module View =
   struct
     include Html5.D
+    let atomic_form ~service form =
+      post_form ~service form ()
   end
 
 module Service =
@@ -61,6 +63,11 @@ module Define =
           Eliom_registration.Action.register_coservice'
             ~get_params:params
             (fun x () -> callback x)
+
+        let atomic callback =
+          post
+            ~params:Eliom_parameter.unit
+            (fun _  -> callback ())
         
       end
    
