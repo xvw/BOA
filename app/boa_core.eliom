@@ -248,3 +248,15 @@ module Password =
                        
        end
    }}
+
+{shared{
+
+     module Math =
+       struct
+
+         let pi = 3.14159265358979323846
+
+       end
+         
+     
+   }}

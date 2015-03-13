@@ -57,6 +57,10 @@
            let _ = ctx ## fillStyle <- (color c) in
            ctx ## fill ()
 
+         let fill_rect ctx c rect =
+           let _ = ctx ## fillStyle <- (color c) in
+           ctx ## fillRect rect
+
          let stroke ctx c =
            let _ = ctx ## strokeStyle <- (color c) in
            ctx ## stroke ()
@@ -80,20 +84,27 @@
 
          let lineJoin ctx style = ctx ## lineJoin (join_style style)
          let lineCap ctx style = ctx ## lineCap (cap_style style)
+ 
+                                     
+         let fillRect ctx c rect =
+           let _ = ctx ## fillStyle <- (color c) in
+           ctx ## fillRect rect
 
-         (* let fillRect ctx f_color s_color (x, y, w, h)  = *)
-         let _ = "A finir !"
+         let strokeRect ctx c rect =
+           let _ = ctx ## strokeStyle <- (color c) in
+           ctx ## strokeRect rect
+
+         let curve ?(dir = true) ctx f_color s_color x y r angle angle_end =
+           let _ = ctx ## beginPath () in
+           let _ = ctx ## arc (x, y, r, angle, angle_end, dir) in
+           let _ = wrap_optn fill ctx f_color in
+           wrap_optn stroke ctx s_color
+
+         let circle ctx f_color s_color x y r =
+           curve ctx f_color s_color x y r 0 Math.pi
            
-         
-       end
 
-     let wrap_ctx f c = f (context c)
-     let fill c = wrap_ctx Context.fill c
-     let stroke c = wrap_ctx Context.stroke c
-     let shape c = wrap_ctx Context.shape c
-     let closedShape c = wrap_ctx Context.closedShape c
-     let lineCap c = wrap_ctx Context.lineCap c
-     let lineJoin c = wrap_ctx Context.lineJoin c
+       end
      
 }}
 
