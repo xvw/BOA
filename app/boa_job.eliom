@@ -14,6 +14,14 @@
        Lwt_js.sleep delay
        >>= (fun _ -> continous ~delay f)
 
+     let execute ?(delay=1.0) x f =
+       let _ =
+         for i = 0 to x do
+           Lwt_js.sleep delay
+           >>= (fun _ -> f ())
+         done
+       in Lwt.return_unit
+                
  }}
 
 {server{
@@ -22,5 +30,13 @@
        let _ = f () in
        Lwt_unix.sleep delay
        >>= (fun _ -> continous ~delay f)
+
+     let execute ?(delay=1.0) x f =
+       let _ =
+         for i = 0 to x do
+           Lwt_unix.sleep delay
+           >>= (fun _ -> f ())
+         done
+       in Lwt.return_unit
      
 }}

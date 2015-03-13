@@ -13,6 +13,7 @@ module Errors = Boa_errors
      module Geolocation = Boa_geolocation
      module Uri = Boa_uri
      module Tip = Boa_tip
+     module Canvas = Boa_canvas
      module Services = Boa_services
      module Sample = Boa_sample
 }}

@@ -32,7 +32,7 @@ let iterate ?(step=1.0) value f =
   Lwt.async
     (fun () ->
      Boa_job.continous
-       (fun () -> 
+       (fun () ->
         apply f handler;
         Lwt.return_unit
        )

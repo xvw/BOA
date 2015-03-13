@@ -184,6 +184,7 @@ module Register =
     
   end
 
+
 module Util =
   struct
 
@@ -228,3 +229,22 @@ module Password =
     let check = Util.password_check
 
   end
+
+{shared{    
+     module List =
+       struct
+         
+         include List
+                   
+         let range fprev fnext a b =
+           let f = if a < b then fprev else fnext in 
+           let rec range acc x =
+             if x = (f a) then acc
+             else range (x::acc) (f x)
+           in range [] b
+                    
+         let seed = range pred succ
+         let (-->) = seed
+                       
+       end
+   }}

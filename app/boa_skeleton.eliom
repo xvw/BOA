@@ -26,10 +26,7 @@ let return title content =
 let modal title content =
   return
     title
-    [
-      Boa_gui.modal
-	content
-    ]
+    [Boa_gui.modal content]
        
 let modal_with_title title content =
   return
