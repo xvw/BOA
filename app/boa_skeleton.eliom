@@ -23,6 +23,14 @@ let return title content =
   raw title content
   |> Lwt.return
 
+let modal title content =
+  return
+    title
+    [
+      Boa_gui.modal
+	content
+    ]
+       
 let modal_with_title title content =
   return
     title
