@@ -3,9 +3,10 @@
      open Eliom_content
      open Html5
      open Boa_core
-     let (>>=) = Lwt.bind
-}}
+     let (>>=) = Lwt.bind     
+   }}
 
+    
 {client{
      
      (* Create signal for reactive data *)

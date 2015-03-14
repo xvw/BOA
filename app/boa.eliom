@@ -10,10 +10,11 @@ module Gui = Boa_gui
 module Errors = Boa_errors
 {shared{
      module Job = Boa_job
-     module Geolocation = Boa_geolocation
      module Uri = Boa_uri
      module Tip = Boa_tip
      module Canvas = Boa_canvas
+     module Geolocation = Boa_geolocation
+     module Mapbox = Boa_mapbox
      module Services = Boa_services
      module Sample = Boa_sample
 }}

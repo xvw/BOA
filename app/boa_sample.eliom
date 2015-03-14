@@ -191,9 +191,13 @@ let geo_view () =
   and lon_ctn = Boa_react.node {{R.pcdata (map_longitude string_of_float)}}
   in
   let _ = {unit{track_coords ()}} in
+  let open View in
   Boa_skeleton.modal_with_title
     "Sample of Geolocation"
-    [View.div [lat_ctn]; View.div [lon_ctn]]
+    [
+      div [lat_ctn];
+      div [lon_ctn]; 
+    ]
     
 let geo_service =
   Register.page
@@ -262,47 +266,63 @@ let tip_service =
        ]
     )
 
-let canvas_service =
+
+
+let mapbox_service =
   Register.page
-    ~path:["canvas"]
-    (fun () -> 
-     Boa_skeleton.modal
-       "Iframe sample"
+    ~path:["mapbox"]
+    (fun () ->
+     let open D in
+     let lat = Raw.input ()
+     and lon = Raw.input () in
+     let _ =
+       {unit{
+            Lwt.async
+              (fun () ->
+               let callb pos =
+                 let dla = To_dom.of_input %lat
+                 and dlo = To_dom.of_input %lon in
+                 let lat = Js.to_float (pos ## coords ## latitude)
+                 and lon = Js.to_float (pos ## coords ## longitude) in
+                 let _ = dla ## value <- (Js.string (string_of_float lat)) in
+                 dlo ## value <- (Js.string (string_of_float lon))
+               in
+               Boa_geolocation.geo_obj ## getCurrentPosition (callb);
+               Lwt.return_unit
+              )
+          }}
+     in 
+     Boa_skeleton.Mapbox.return
+       "Mapbox sample"
        [
-         D.(iframe
-           ~a:[a_src (Boa_uri.make_simple "http://lalibre.be")]
-           [])
+         lat; lon;
+         div
+           ~a:[a_id "map";]
+           [];
+         button
+           ~button_type:`Button
+           ~a:[
+             a_style "z-index:99999; position:absolute;";
+             a_onclick
+               {{fun e ->
+                 let lav =
+                   (Js.to_string (To_dom.of_input %lat) ## value)
+                   |> float_of_string
+                 and lov =
+                   (Js.to_string(To_dom.of_input %lon) ## value)
+                   |> float_of_string
+                 in 
+
+                 let m =
+                   Boa_mapbox.append
+                     "map"
+                     "examples.map-i86nkdio"
+                 in
+                 Boa_mapbox.focusOn m lav lov 17
+                                       
+                }} 
+           ]
+           [pcdata "lol"]
        ]
     )
-    (* (fun () -> *)
-    (*  let container = D.div [] in *)
-    (*  let _ = *)
-    (*    {unit{ *)
-    (*         let canvas = Boa_canvas.create 450 200 in *)
-    (*         let ctx = Boa_canvas.Context.get canvas in  *)
-    (*         let _ = Boa_canvas.append canvas %container in *)
-    (*         let _ = *)
-    (*           Boa_canvas.Context.fillRect *)
-    (*             ctx *)
-    (*             "#FF0000" *)
-    (*             0.0 *)
-    (*             0.0 *)
-    (*             450. *)
-    (*             200. *)
-    (*         in *)
-    (*         let _ = Boa_canvas.Context.lineSize ctx 3. in *)
-    (*         let _ = *)
-    (*           Boa_canvas.Context.circle *)
-    (*             ctx *)
-    (*             None *)
-    (*             (Some "#0000FF") *)
-    (*             100. *)
-    (*             100. *)
-    (*             100. *)
-    (*         in () *)
-    (*       }} *)
-    (*  in  *)
-    (*  Boa_skeleton.modal *)
-    (*    "Sample of canvas" *)
-    (*    [container] *)
-    (* ) *)
+    

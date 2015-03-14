@@ -6,14 +6,20 @@
     <charset>utf-8</charset>
     <commandpipe>tmp/run/cmd</commandpipe>
     <extension findlib-package="ocsigenserver.ext.staticmod"/>
-    <extension findlib-package="ocsigenserver.ext.ocsipersist-dbm"/>
+    <extension findlib-package="ocsigenserver.ext.ocsipersist-dbm">
+      <store dir="/tmp/ocsidbm"/>
+    </extension>
     <extension findlib-package="eliom.server"/>
     <extension findlib-package="macaque.syntax"/>
     <extension findlib-package="safepass"/>
     <host hostfilter="*">
       <static dir="public" />
       <eliommodule module="_build/app/server/boa.cma" />
-      <eliom/>
+      <eliom>
+        <!-- Timeout of cookies sessions (30 days) -->
+        <persistenttimeout value="2592000"/>
+        <persistentsessiongcfrequency value="2592000"/>
+      </eliom>
     </host>
     <debugmode/>
   </server>

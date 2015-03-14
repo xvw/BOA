@@ -48,3 +48,4 @@
     background-color: #74DBA5;
     color: #203D2E;
 }
+#map { position:absolute; top:0; bottom:0; width:100%; }
