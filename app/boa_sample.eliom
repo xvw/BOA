@@ -261,3 +261,48 @@ let tip_service =
             ]));
        ]
     )
+
+let canvas_service =
+  Register.page
+    ~path:["canvas"]
+    (fun () -> 
+     Boa_skeleton.modal
+       "Iframe sample"
+       [
+         D.(iframe
+           ~a:[a_src (Boa_uri.make_simple "http://lalibre.be")]
+           [])
+       ]
+    )
+    (* (fun () -> *)
+    (*  let container = D.div [] in *)
+    (*  let _ = *)
+    (*    {unit{ *)
+    (*         let canvas = Boa_canvas.create 450 200 in *)
+    (*         let ctx = Boa_canvas.Context.get canvas in  *)
+    (*         let _ = Boa_canvas.append canvas %container in *)
+    (*         let _ = *)
+    (*           Boa_canvas.Context.fillRect *)
+    (*             ctx *)
+    (*             "#FF0000" *)
+    (*             0.0 *)
+    (*             0.0 *)
+    (*             450. *)
+    (*             200. *)
+    (*         in *)
+    (*         let _ = Boa_canvas.Context.lineSize ctx 3. in *)
+    (*         let _ = *)
+    (*           Boa_canvas.Context.circle *)
+    (*             ctx *)
+    (*             None *)
+    (*             (Some "#0000FF") *)
+    (*             100. *)
+    (*             100. *)
+    (*             100. *)
+    (*         in () *)
+    (*       }} *)
+    (*  in  *)
+    (*  Boa_skeleton.modal *)
+    (*    "Sample of canvas" *)
+    (*    [container] *)
+    (* ) *)

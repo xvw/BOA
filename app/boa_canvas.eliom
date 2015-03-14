@@ -26,19 +26,19 @@
          | _ -> "mitter"
        in Js.string s
 
-     let createCanvas width height  =
+     let create width height  =
        let canvas = Dom_html.createCanvas doc in
        let _ = canvas ## width <- width in 
        let _ = canvas ## height <- height in
        canvas
 
-     let appendCanvas elt canvas =
+     let append canvas elt =
        let dom_elt = To_dom.of_element elt in
        Dom.appendChild dom_elt canvas
 
      let createIn width height elt =
-       let canvas = createCanvas width height in
-       let _ = appendCanvas elt canvas in
+       let canvas = create width height in
+       let _ = append canvas elt in
        canvas
 
      let context canvas =
@@ -86,23 +86,26 @@
          let lineCap ctx style = ctx ## lineCap (cap_style style)
  
                                      
-         let fillRect ctx c rect =
+         let fillRect ctx c x y w h  =
            let _ = ctx ## fillStyle <- (color c) in
-           ctx ## fillRect rect
+           ctx ## fillRect (x, y, w, h)
 
-         let strokeRect ctx c rect =
+         let strokeRect ctx c x y w h =
            let _ = ctx ## strokeStyle <- (color c) in
-           ctx ## strokeRect rect
+           ctx ## strokeRect (x, y, w, h)
 
          let curve ?(dir = true) ctx f_color s_color x y r angle angle_end =
+           let d = if dir then Js._true else Js._false in 
            let _ = ctx ## beginPath () in
-           let _ = ctx ## arc (x, y, r, angle, angle_end, dir) in
+           let _ = ctx ## arc (x, y, r, angle, angle_end, d) in
            let _ = wrap_optn fill ctx f_color in
            wrap_optn stroke ctx s_color
 
          let circle ctx f_color s_color x y r =
-           curve ctx f_color s_color x y r 0 Math.pi
-           
+           curve ctx f_color s_color x y r 0. (Math.pi *. 2.)
+
+         let lineSize ctx x =
+           ctx ## lineWidth <- (Js.float x)
 
        end
      
